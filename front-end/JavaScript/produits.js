@@ -39,3 +39,10 @@ function choixCouleur(produit) {
         choixCouleur.appendChild(option);
     }
 }
+
+// gestion du clic sur le bouton d'ajout au panier
+
+const btnAjoutPanier = document.getElementById("btnAjoutPanier");
+btnAjoutPanier.addEventListener('click', () => {
+
+})

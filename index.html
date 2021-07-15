@@ -9,7 +9,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Feuille de style -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./front-end/style/style.css" />
+    <!--Bibliothèque fontAwesome-->
+    <link rel="stylesheet" href="./front-end/style/fontawesome-free-5.15.3-web/css/all.css">
+
 
     <title>Orinoco - Le plus grand choix d'ours en peluche</title>
 
@@ -31,7 +34,7 @@
                         <a class="nav-link nav-accueil" aria-current="page" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-panier" href="front-end/panier.html">Panier</a>
+                        <a class="nav-link nav-panier" href="front-end/panier.html">Panier<i class="fas fa-shopping-cart"></i> </a>
                     </li>
                 </ul>
             </div>
@@ -47,8 +50,8 @@
     </main>
 
     <!--zone chargement des produits avec JS-->
-    <section class="container">
-        <div class="container-produits" id="liste"></div>
+    <section class="liste">
+        <div class="liste-produits" id="liste"></div>
     </section>
 
     <!-- Footer -->
