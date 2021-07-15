@@ -21,7 +21,7 @@ fetch(idProduit)
 // fonction de création de la fiche produit 
 function getFicheProduit(produit) {
     let produitImage = document.getElementById("imageProduit");
-    produitImage.innerHTML += `<img src="${produit.imageUrl}" class="img-fluid img-thumbnail" alt="${produit.name}">`;
+    produitImage.innerHTML += `<img src="${produit.imageUrl}" class="img-fluid img-thumbnail imgTeddy" alt="${produit.name}">`;
     let produitNom = document.getElementById("nomProduit");
     produitNom.innerHTML += `<h3>${produit.name}</h3>`;
     let produitDescription = document.getElementById("descriptionProduit");
@@ -39,10 +39,3 @@ function choixCouleur(produit) {
         choixCouleur.appendChild(option);
     }
 }
-
-// gestion du clic sur le bouton d'ajout au panier
-
-const btnAjoutPanier = document.getElementById("btnAjoutPanier");
-btnAjoutPanier.addEventListener('click', () => {
-
-})

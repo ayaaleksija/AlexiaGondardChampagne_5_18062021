@@ -11,10 +11,9 @@ function conversionPrix(produitPrix) {
 
 // création de l'objet / class de mon nounours
 class Produit {
-    constructor(id, nom, description, prix, couleur, quantite, image) {
+    constructor(id, nom, prix, couleur, quantite, image) {
         this.id = id;
         this.name = nom;
-        this.description = description;
         this.prix = prix;
         this.couleur = couleur;
         this.quantite = quantite;
