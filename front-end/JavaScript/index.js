@@ -19,7 +19,7 @@ function addFiche(data) {
         let prix = conversionPrix(produit.price);
         // création de la fiche produit
         fiche.innerHTML +=
-            `<div class="col-sm-12 col-md-6 pb-3  ">
+            `<div class="container-produit">
                 <div class="card bg-light md-5 border rounded p-3">
                         <img src="${produit.imageUrl}" class="img-fluid p-1 img-thumbnail" alt="${produit.name}">
                         <h3 class="card-title">${produit.name}</h3>
