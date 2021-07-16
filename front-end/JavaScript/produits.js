@@ -12,6 +12,7 @@ fetch(idProduit)
     .then((produit) => {
         getFicheProduit(produit);
         choixCouleur(produit);
+        ajoutPanier();
     })
     // gestion des erreurs
     .catch(function(error) {
@@ -39,3 +40,33 @@ function choixCouleur(produit) {
         choixCouleur.appendChild(option);
     }
 }
+
+// fonction d'ajout au panier
+function ajoutPanier() {
+    // création de la constante du btn
+    const btnAjoutPanier = document.getElementById("btnAjoutPanier");
+    // écoute de l'evenement clic sur le btn d'ajout au panier 
+    btnAjoutPanier.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // création constante pour choix de la couleur et récupération de la valeur
+        const idCouleur = document.getElementById("choixCouleur");
+        const choixCouleur = idCouleur.value;
+
+        // création constante pour choix de la quantité et récupération de la valeur
+        const idQuantite = document.getElementById("quantite");
+        const choixQuantite = idQuantite.value;
+
+        // création de l'obet pour l'ajout au panier
+        let newProduit = {
+            name: nomProduit.innerHTML,
+            price: prixProduit.innerHTML / 100,
+            colors: choixCouleur,
+            quantite: choixQuantite,
+            _id: urlID
+        }
+        console.log(newProduit);
+    });
+
+}
+console.log(ajoutPanier);

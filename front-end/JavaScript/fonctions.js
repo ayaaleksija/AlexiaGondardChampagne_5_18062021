@@ -8,15 +8,3 @@ function conversionPrix(produitPrix) {
     prix = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', code: "€", minimumFractionDigits: 2, }).format(prix / 100);
     return prix;
 }
-
-// création de l'objet / class de mon nounours
-class Produit {
-    constructor(id, nom, prix, couleur, quantite, image) {
-        this.id = id;
-        this.name = nom;
-        this.prix = prix;
-        this.couleur = couleur;
-        this.quantite = quantite;
-        this.image = image;
-    }
-}
