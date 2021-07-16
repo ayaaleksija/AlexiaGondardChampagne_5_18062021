@@ -65,8 +65,20 @@ function ajoutPanier() {
             quantite: choixQuantite,
             _id: urlID
         }
-        console.log(newProduit);
-    });
 
+        // déclaration d'une variable pour l'enregistrement des donnéesKey et value dans le localstorage
+        // utilisation de JSON.PARSE pour récupérer les données présentes dans localstorage
+        let produitAjoute = JSON.parse(localStorage.getItem("produit"));
+        // si produits dans le localstorage
+        if (produitAjoute !== null) {
+            produitAjoute.push(newProduit);
+            localStorage.setItem("produit", JSON.stringify(produitAjoute));
+        } else {
+            // Déclaration du tableau ou seront stockés les choix produits
+            produitAjoute = [];
+            // push de ces information vers localstorage
+            produitAjoute.push(newProduit);
+            localStorage.setItem("produit", JSON.stringify(produitAjoute));
+        }
+    });
 }
-console.log(ajoutPanier);
