@@ -8,4 +8,8 @@ console.log(tableauPanier);
 // si le panier est vide
 if (produitAjoute === null) {
     console.log("je suis vide");
+} else {
+    console.log("je ne suis pas vide");
+    // si le panier n'est pas vide
+
 }

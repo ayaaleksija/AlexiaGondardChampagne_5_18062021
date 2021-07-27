@@ -41,6 +41,15 @@ function choixCouleur(produit) {
     }
 }
 
+function popupConfirmation() {
+    if (window.confirm(`Votre produit a bien été ajouté au panier!
+            Consultez le panier OK ou revenir à l'accueil ANNULER`)) {
+        window.location.href = "panier.html";
+    } else {
+        window.location.assign = "../index.html";
+    }
+}
+
 // fonction d'ajout au panier
 function ajoutPanier() {
     // création de la constante du btn
@@ -60,7 +69,7 @@ function ajoutPanier() {
         // création de l'obet pour l'ajout au panier
         let newProduit = {
             name: nomProduit.innerHTML,
-            price: prixProduit.innerHTML / 100,
+            price: prixProduit.innerHTML,
             colors: choixCouleur,
             quantite: choixQuantite,
             _id: urlID
@@ -70,25 +79,14 @@ function ajoutPanier() {
         // utilisation de JSON.PARSE pour récupérer les données présentes dans localstorage
         let produitAjoute = JSON.parse(localStorage.getItem("produit"));
         // si produits dans le localstorage
-        function popupConfirmation() {
-            if (window.confirm(`Votre produit a bien été ajouté au panier!
-            Consultez le panier OK ou revenir à l'accueil ANNULER`)) {
-                window.location.href = "panier.html";
-            } else {
-                window.location.assign = "index.htm";
-            }
-        };
-        if (produitAjoute !== null) {
-            produitAjoute.push(newProduit);
-            localStorage.setItem("produit", JSON.stringify(produitAjoute));
-            popupConfirmation();
-        } else {
+
+        if (produitAjoute = null) {
             // Déclaration du tableau ou seront stockés les choix produits
             produitAjoute = [];
-            // push de ces information vers localstorage
-            produitAjoute.push(newProduit);
-            localStorage.setItem("produit", JSON.stringify(produitAjoute));
-            popupConfirmation();
         }
+        produitAjoute.push(newProduit);
+        localStorage.setItem("produit", JSON.stringify(produitAjoute));
+        popupConfirmation();
+
     });
 }

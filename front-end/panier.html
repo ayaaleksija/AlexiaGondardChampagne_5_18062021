@@ -41,18 +41,19 @@
         </div>
     </nav>
 
-    <section id="panier">
-        <!--panier vide-->
-        <div class="paniervide">
+    <section id="panierVide">
+        <!--gestion du panier vide-->
+        <div class="paniervide text-center">
             <p>Votre panier est vide.</p>
-            <button id="retourAccueil">Accueil</button>
+            <a href="../index.html"><button id="retourAccueil">Accueil</button></a>
         </div>
-
+    </section>
+    <section id="panierPlein">
         <!--panier contenant des produits-->
         <div class="produitAjoute">
             <h2 class="monpanier"> Mon Panier</h2>
             <!--création d'un tableau pour le contenu de mon panier-->
-            <div class="tableauPanier">
+            <div id="tableauPanier">
                 <table>
                     <thead>
                         <tr>
@@ -64,6 +65,7 @@
                             <th>Total</th>
                         </tr>
                     </thead>
+                    <!-- insertion des produits ajoutés dans le tableau créé précedemment-->
                     <tbody class="produitsAjoutes"></tbody>
                 </table>
             </div>
