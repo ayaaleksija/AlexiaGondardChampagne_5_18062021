@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index.html">
-                <img class="img-fluid" src="../back-end/images/logo.png" alt="Site logo">
+                <img class="img-fluid logo" src="../back-end/images/logo.png" alt="Site logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
             <span class="navbar-toggler-icon"></span>
@@ -48,12 +48,13 @@
             <a href="../index.html"><button id="retourAccueil">Accueil</button></a>
         </div>
     </section>
-    <section id="panierPlein">
+
+    <section id="panier">
         <!--panier contenant des produits-->
-        <div class="produitAjoute">
-            <h2 class="monpanier"> Mon Panier</h2>
+        <div id="panierPlein">
+            <h2> Mon Panier</h2>
             <!--création d'un tableau pour le contenu de mon panier-->
-            <div id="tableauPanier">
+            <div id="listePanier">
                 <table>
                     <thead>
                         <tr>
@@ -66,13 +67,50 @@
                         </tr>
                     </thead>
                     <!-- insertion des produits ajoutés dans le tableau créé précedemment-->
-                    <tbody class="produitsAjoutes"></tbody>
+                    <tbody id="listeProduitPanier"></tbody>
                 </table>
             </div>
-            <button type="submit" id="validationPanier">Commander</button>
-            <button type="submit" id="viderPanier">Vider le panier</button>
+            <div><button type="submit" id="validationPanier">Commander</button></div>
+            <div><button type="submit" id="viderPanier">Vider le panier</button></div>
+        </div>
+
+
+        <!-- insertion du formulaire de contact si des produits sont dans le panier-->
+        <div id="formulaireCommande">
+            <p>Merci de compléter ce formulaire afin de valider votre commande.</p>
+            <form>
+                <div>
+                    <label for="validationDefault01">Nom</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Ex: 'Gondard'" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                </div>
+                <div>
+                    <label for="validationDefault02">Préom</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Ex: 'Alexia'" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                </div>
+                <div>
+                    <label for="validationDefaultUsername">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Ex: 'alexiagondard@gmail.fr'" aria-describedby="inputGroupPrepend" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$" required>
+                </div>
+                <div>
+                    <label for="validationDefault03">Adresse</label>
+                    <input type="text" class="form-control" id="address" placeholder="Ex: '31 rue Diderot'" pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$" required>
+                </div>
+                <div>
+                    <label for="validationDefault04">Ville</label>
+                    <input type="text" class="form-control" id="city" placeholder="Ex: 'Paris'" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required>
+                </div>
+
+                <div class="text-center my-5 d-md-flex justify-content-md-end">
+                    <div class="col-12 col-sm-6 my-4">
+                        <button type="submit" class="btn btn-secondary mx-5" id="order">Passer la commande</button>
+                    </div>
+
+                </div>
+            </form>
         </div>
     </section>
+
+
 
 
     <!-- Footer -->

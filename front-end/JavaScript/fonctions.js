@@ -9,13 +9,12 @@ function conversionPrix(produitPrix) {
     return prix;
 }
 
-function listeProduits(produit) {
-    const listeProduits = document.getElementById("produitsAjoutes");
-    listeProduits.innerHTML += `<tr class="text-center">
-    <td><img src="${produit.imgurl}" class="img-fluid img-thumbnail" alt="${produit.name}"></td>
-    <td><span>${produit.name}</span></td>
-    <td><span>${produit.colors}</span></td>
-    <td><span>${conversionPrix(produit.price)}</span></td>
-    <td><span>${conversionPrix(produit.quantite * produit.price)}</span></td>
-</tr>`;
+function popupConfirmation() {
+    if (window.confirm(`Votre produit a bien été ajouté au panier!
+OK pour aller au panier
+ou ANNULER pour continuer votre shopping!`)) {
+        window.location.href = "panier.html";
+    } else {
+        window.location.assign = "../index.html";
+    }
 }

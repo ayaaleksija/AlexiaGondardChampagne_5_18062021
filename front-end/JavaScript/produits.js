@@ -5,6 +5,11 @@ const urlID = params.get('_id');
 // déclaration de ma nouvelle id dans mes fonctions - paramètres d'environnement
 const idProduit = "http://localhost:3000/api/teddies/" + urlID;
 
+let produitImage = document.getElementById("imageProduit");
+let produitNom = document.getElementById("nomProduit");
+let produitDescription = document.getElementById("descriptionProduit");
+let produitPrix = document.getElementById("prixProduit");
+
 
 // requête avec la nouvelle adresse 
 fetch(idProduit)
@@ -21,13 +26,9 @@ fetch(idProduit)
 
 // fonction de création de la fiche produit 
 function getFicheProduit(produit) {
-    let produitImage = document.getElementById("imageProduit");
     produitImage.innerHTML += `<img src="${produit.imageUrl}" class="img-fluid img-thumbnail imgTeddy" alt="${produit.name}">`;
-    let produitNom = document.getElementById("nomProduit");
     produitNom.innerHTML += `<h3>${produit.name}</h3>`;
-    let produitDescription = document.getElementById("descriptionProduit");
     produitDescription.innerHTML += `<h3>${produit.description}</h3>`;
-    let produitPrix = document.getElementById("prixProduit");
     produitPrix.innerHTML += `<h4>${conversionPrix(produit.price)}</h4>`;
 }
 
@@ -38,15 +39,6 @@ function choixCouleur(produit) {
         let option = document.createElement("option");
         option.innerText = produit.colors[i];
         choixCouleur.appendChild(option);
-    }
-}
-
-function popupConfirmation() {
-    if (window.confirm(`Votre produit a bien été ajouté au panier!
-            Consultez le panier OK ou revenir à l'accueil ANNULER`)) {
-        window.location.href = "panier.html";
-    } else {
-        window.location.assign = "../index.html";
     }
 }
 
@@ -68,19 +60,19 @@ function ajoutPanier() {
 
         // création de l'obet pour l'ajout au panier
         let newProduit = {
-            name: nomProduit.innerHTML,
-            price: prixProduit.innerHTML,
+            name: produitNom.innerHTML,
+            price: parseFloat(produitPrix.innerHTML),
             colors: choixCouleur,
             quantite: choixQuantite,
             _id: urlID
-        }
+        };
 
         // déclaration d'une variable pour l'enregistrement des donnéesKey et value dans le localstorage
         // utilisation de JSON.PARSE pour récupérer les données présentes dans localstorage
         let produitAjoute = JSON.parse(localStorage.getItem("produit"));
         // si produits dans le localstorage
 
-        if (produitAjoute = null) {
+        if (produitAjoute < 1) {
             // Déclaration du tableau ou seront stockés les choix produits
             produitAjoute = [];
         }
