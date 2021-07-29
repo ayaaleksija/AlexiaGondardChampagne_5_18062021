@@ -61,7 +61,7 @@ function ajoutPanier() {
         // création de l'obet pour l'ajout au panier
         let newProduit = {
             name: produitNom.innerHTML,
-            price: parseFloat(produitPrix.innerHTML),
+            price: produitPrix.innerHTML,
             colors: choixCouleur,
             quantite: choixQuantite,
             _id: urlID
