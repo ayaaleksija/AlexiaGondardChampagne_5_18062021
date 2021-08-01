@@ -13,6 +13,17 @@
     margin-right: 30%;
 }
 
+button {
+    background: #C39BD3;
+    color: white;
+    border-radius: 10%;
+    padding: 10px;
+}
+
+p {
+    margin: 0;
+}
+
 .navbar-nav {
     align-items: center;
 }
@@ -66,12 +77,38 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .option_couleurquantite {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+table {
+    width: 100%;
+    border-style: solid;
+}
+
+.tableau {
+    width: 100%;
+}
+
+.titreTableau,
+.liste {
+    text-align: center;
+}
+
+.liste {
+    font-size: 20px;
+}
+
+.btnPanier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 @media screen and (max-width: 480px) {

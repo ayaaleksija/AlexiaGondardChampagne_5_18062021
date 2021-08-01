@@ -15,6 +15,6 @@ OK pour aller au panier
 ou ANNULER pour continuer votre shopping!`)) {
         window.location.href = "panier.html";
     } else {
-        window.location.assign = "../index.html";
+        window.location.assign = "../../index.html";
     }
 }

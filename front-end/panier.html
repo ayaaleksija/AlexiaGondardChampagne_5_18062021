@@ -58,20 +58,25 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Nom</th>
-                            <th>Couleur</th>
-                            <th>Quantité</th>
-                            <th>Prix</th>
-                            <th>Total</th>
+                            <th class="titreTableau">Nom</th>
+                            <th class="titreTableau">Couleur</th>
+                            <th class="titreTableau">Quantité</th>
+                            <th class="titreTableau">Prix</th>
                         </tr>
                     </thead>
                     <!-- insertion des produits ajoutés dans le tableau créé précedemment-->
                     <tbody id="listeProduitPanier"></tbody>
+                    <tfoot>
+                        <tr>
+                            <th id="totalPanier">Total</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
-            <div><button type="submit" id="validationPanier">Commander</button></div>
-            <div><button type="submit" id="viderPanier">Vider le panier</button></div>
+            <div class="btnPanier">
+                <div><button type="submit" id="validationPanier">Commander</button></div>
+                <div><button type="submit" id="viderPanier">Vider le panier</button></div>
+            </div>
         </div>
 
 
@@ -100,11 +105,8 @@
                     <input type="text" class="form-control" id="city" placeholder="Ex: 'Paris'" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required>
                 </div>
 
-                <div class="text-center my-5 d-md-flex justify-content-md-end">
-                    <div class="col-12 col-sm-6 my-4">
-                        <button type="submit" class="btn btn-secondary mx-5" id="order">Passer la commande</button>
-                    </div>
-
+                <div class="validationCommande">
+                    <button type="submit" class="btnValider" id="order">Passer la commande</button>
                 </div>
             </form>
         </div>

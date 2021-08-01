@@ -27,9 +27,9 @@ fetch(idProduit)
 // fonction de création de la fiche produit 
 function getFicheProduit(produit) {
     produitImage.innerHTML += `<img src="${produit.imageUrl}" class="img-fluid img-thumbnail imgTeddy" alt="${produit.name}">`;
-    produitNom.innerHTML += `<h3>${produit.name}</h3>`;
-    produitDescription.innerHTML += `<h3>${produit.description}</h3>`;
-    produitPrix.innerHTML += `<h4>${conversionPrix(produit.price)}</h4>`;
+    produitNom.innerHTML += `<p>${produit.name}</p>`;
+    produitDescription.innerHTML += `<p>${produit.description}</p>`;
+    produitPrix.innerHTML += `<p>${conversionPrix(produit.price)}</p>`;
 }
 
 // fonction pour le choix de la couleur
@@ -60,6 +60,7 @@ function ajoutPanier() {
 
         // création de l'obet pour l'ajout au panier
         let newProduit = {
+            imageUrl: produitImage.innerHTML,
             name: produitNom.innerHTML,
             price: produitPrix.innerHTML,
             colors: choixCouleur,
