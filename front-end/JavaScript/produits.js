@@ -26,7 +26,7 @@ fetch(idProduit)
 
 // fonction de création de la fiche produit 
 function getFicheProduit(produit) {
-    produitImage.innerHTML += `<img src="${produit.imageUrl}" class="img-fluid img-thumbnail imgTeddy" alt="${produit.name}">`;
+    produitImage.innerHTML += `<img src="${produit.imageUrl}" class="imgTeddy imgFicheProduit" alt="${produit.name}">`;
     produitNom.innerHTML += `<p>${produit.name}</p>`;
     produitDescription.innerHTML += `<p>${produit.description}</p>`;
     produitPrix.innerHTML += `<p>${conversionPrix(produit.price)}</p>`;

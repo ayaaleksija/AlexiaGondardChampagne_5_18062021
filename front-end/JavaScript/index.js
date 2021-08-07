@@ -20,13 +20,11 @@ function addFiche(data) {
         // création de la fiche produit
         fiche.innerHTML +=
             `<div class="container-produit">
-                <div class="card bg-light border rounded">
-                        <img src="${produit.imageUrl}" class="img-fluid p-1 img-thumbnail imgTeddy" alt="${produit.name}">
+                <div class="card border rounded">
+                        <img src="${produit.imageUrl}" class="imgTeddy" alt="${produit.name}">
                         <h3 class="card-title">${produit.name}</h3>
-                        <div class="priceBtn>
-                        <h4 class="card-title">${prix}</h4>
+                        <h4 class="card-title price">${prix}</h4>
                         <a href="./front-end/produits.html?_id=${produit._id}"><button class="btnMore"> Voir plus </button></a>
-                        </div>
                 <div>
             </div>`;
     }

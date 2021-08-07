@@ -1,124 +1,225 @@
 * {
     box-sizing: border-box;
-    margin: 5px;
-    padding: 5px;
+    text-align: center;
 }
 
-.container-fluid {
-    align-items: center;
+a {
+    text-decoration: none;
+    color: rgb(108, 105, 131);
 }
 
-.navbar-brand {
-    max-width: 30%;
-    margin-right: 30%;
-}
-
-button {
-    background: #C39BD3;
-    color: white;
-    border-radius: 10%;
-    padding: 10px;
-}
-
-p {
-    margin: 0;
-}
-
-.navbar-nav {
-    align-items: center;
+.container {
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
-    width: 200px;
+    align-items: center;
+    width: 50%;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .nav-link {
-    font-size: 1em;
-}
-
-.nav-accueil {
-    margin-left: 150px;
-}
-
-.main {
-    background-color: #C39BD3;
-    color: white;
-}
-
-.selection {
+    margin: 40px 0px 20px 0px;
+    color: rgb(108, 105, 131);
     font-size: 1.5em;
 }
 
+.nav-panier {
+    margin-left: 50px;
+}
+
+.nav-accueil {
+    margin-right: 50px;
+}
+
+.main,
+footer {
+    border-style: double;
+    border-color: #C39BD3;
+    background-color: #eadaf8;
+    padding: 5px;
+    margin: 5px;
+}
+
+.message-bienvenue {
+    font-size: large;
+    font-weight: bold;
+}
+
+.selection {
+    font-size: 1.2em;
+    font-style: italic;
+    color: rgb(108, 105, 131);
+}
+
 .liste-produits {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .container-produit {
-    margin: 15px;
+    width: 45%;
+    height: 30%;
+    margin: 20px;
 }
 
 .imgTeddy {
-    max-width: 350px;
-    height: 250px;
+    border-bottom-style: solid;
+    border-color: #C39BD3;
+    height: 450px;
+    text-align: center;
+    object-fit: cover;
 }
 
-.priceBtn {
-    display: flex;
-    flex-direction: row;
+h3 {
+    color: #C39BD3
+}
+
+.price {
+    position: relative;
+    color: #C39BD3
 }
 
 .btnMore {
-    margin-left: 190px;
+    background: #C39BD3;
+    color: white;
+    border-radius: 10%;
+    padding: 5px;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+#produits {
+    margin: 20px;
+}
+
+.imgFicheProduit {
+    height: 300px;
+    width: 300px;
+    border-style: solid;
+    border-color: #C39BD3;
+    object-fit: cover;
 }
 
 .produit_nomprix {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    font-size: x-large;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: large;
     font-weight: bold;
+    color: #C39BD3;
+}
+
+#descriptionProduit {
+    font-size: small;
 }
 
 .option_couleurquantite {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
     align-items: center;
+}
+
+#btnAjoutPanier {
+    background: #C39BD3;
+    color: white;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+.paniervide {
+    border-style: none;
+    background-color: white;
+    padding: 50px;
+    margin: 5px;
+    font-size: large;
+    font-weight: bold;
+    color: #C39BD3;
+}
+
+#retourAccueil,
+#validationPanier,
+#viderPanier,
+#order {
+    background: #C39BD3;
+    color: white;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+#panierPlein h2 {
+    color: #C39BD3;
+}
+
+#listePanier {
+    margin: 30px;
 }
 
 table {
     width: 100%;
-    border-style: solid;
-}
-
-.tableau {
-    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .titreTableau,
 .liste {
     text-align: center;
+    align-items: center;
 }
 
-.liste {
-    font-size: 20px;
+tr,
+th,
+td {
+    border: 1px solid rgb(108, 105, 131);
 }
 
 .btnPanier {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btnValider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin: 0 50px 0 50px;
+}
+
+input {
+    text-align: left!important;
+}
+
+.titreForm {
+    font-weight: bold;
+    color: rgb(108, 105, 131);
 }
 
 @media screen and (max-width: 480px) {
-    .container-produits {
-        flex-direction: column;
-        max-width: 100%;
-        margin: 0;
+    .container-produit {
+        width: 80%;
+        height: 30%;
+        margin: 20px;
     }
     .imgTeddy {
-        max-width: 300px;
-        height: 200px;
+        object-fit: cover;
+    }
+    btnMore {
+        display: none;
     }
 }

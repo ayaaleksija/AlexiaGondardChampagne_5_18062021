@@ -63,19 +63,6 @@ function afficherFormulaire() {
     });
 }
 
-// déclaration des constantes et variables
-const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
-const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
-const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
-const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
-let nom = document.getElementById("firstName");
-let prenom = document.getElementById("lastName");
-let adresse = document.getElementById("address");
-let ville = document.getElementById("city");
-let email = document.getElementById("email");
-
-
-
 
 function validationFormulaireCommande() {
     const validationCommande = document.getElementById("order");
