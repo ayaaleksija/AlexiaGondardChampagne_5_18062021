@@ -63,54 +63,78 @@ function afficherFormulaire() {
     });
 }
 
+// déclaration des constantes et variables
+const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
+const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
+const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
+let nom = document.getElementById("firstName");
+let prenom = document.getElementById("lastName");
+let adresse = document.getElementById("address");
+let ville = document.getElementById("city");
+let email = document.getElementById("email");
+
+
+
 
 function validationFormulaireCommande() {
+    const validationCommande = document.getElementById("order");
     const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
     const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
     const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
-    // création de l'objet fiche client
-    let ficheClient = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
-        address: document.getElementById("address").value,
-        city: document.getElementById("city").value,
-        email: document.getElementById("email").value,
-    };
-    console.log(ficheClient);
+    let nom = document.getElementById("firstName");
+    let prenom = document.getElementById("lastName");
+    let adresse = document.getElementById("address");
+    let ville = document.getElementById("city");
+    let email = document.getElementById("email");
 
-    const validationCommande = document.getElementById("order");
+    // on écoute le click sur le bouton commande
     validationCommande.addEventListener("click", (e) => {
-        e.preventDefault();
+
         // condition pour valider si le formulaire est correctement rempli par le client
-        if (((regexName.test(ficheClient.firstName) === false) ||
-                (regexEmail.test(ficheClient.email) === false) ||
-                (regexAddress.test(ficheClient.address) === false) ||
-                (regexCity.test(ficheClient.city) === false))) {
-            messageError = "Merci de vérifier les champs à compléter.";
-        }
-        // déclaration d'un tableai des produits acheté à push
-        let produitsAchetes = [];
-        produitsAchetes.push(localS);
-
-        let commande = {
-            contact: ficheClient,
-            products: produitsAchetes,
-        };
-
-        // Envoi de la requete POST pour le backend
-        const choixClient = {
-            method: "POST",
-            body: JSON.stringify(commande),
-            headers: { "Content-Type": "application/json" },
-        };
-
-        fetch("http://localhost:3000/api/teddies/order", choixClient)
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem("commande", JSON.stringify(data));
-                document.location.href = "commande.html";
+        if (!regexName.test(nom.value) ||
+            !regexName.test(prenom.value) ||
+            !regexEmail.test(email.value) ||
+            !regexAddress.test(adresse.value) ||
+            !regexCity.test(ville.value)) {
+            alert("Merci de vérifier que les champs complétés sont corrects.");
+        } else {
+            e.preventDefault();
+            // création de l'objet contact pour la fiche client
+            let products = [];
+            let produitsCommandes = JSON.parse(localStorage.getItem("produit"));
+            produitsCommandes.forEach(p => {
+                products.push(p._id);
             })
-            .catch((erreur) => console.log("erreur : " + erreur));
+
+            // création d'une constante rassemblant formulaire et produits 
+            const order = {
+                contact: {
+                    firstName: nom.value,
+                    lastName: prenom.value,
+                    address: adresse.value,
+                    city: ville.value,
+                    email: email.value,
+                },
+                products: products,
+            };
+
+            // Envoi de la requete POST pour le backend
+
+            fetch("http://localhost:3000/api/teddies/order", {
+                    method: "POST",
+                    body: JSON.stringify(order),
+                    headers: { "Content-Type": "application/json" },
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    localStorage.setItem("order", data.order);
+                    document.location.href = "commande.html";
+                })
+                .catch((erreur) => console.log("erreur : " + erreur));
+        }
     });
+
 }
