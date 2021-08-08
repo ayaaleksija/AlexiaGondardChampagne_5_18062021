@@ -43,7 +43,6 @@ function afficherPanier() {
         //affiche le totalBasket
         const totalCommande = document.getElementById("totalPanier");
         totalCommande.innerHTML += `${conversionPrix(localS.price)}`;
-
     }
 }
 
