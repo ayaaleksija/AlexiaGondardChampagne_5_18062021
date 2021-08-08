@@ -1,9 +1,9 @@
-const order = JSON.parse(localStorage.getItem("order"));
+let confirmation = localStorage.getItem("orderId");
 
 // affiche Mes informations
 const recapitulatif = document.getElementById("recapitulatif");
 recapitulatif.innerHTML +=
-    `<p>Merci pour votre achat sur notre site !</p>
-    <p>Elle porte la référence <span>${order.orderId}</span>.</p>`;
+    `<h3>Récapitulatif de votre commande</h3>
+    <p>Référence n° : <span>${confirmation}</span>.</p>`;
 
 localStorage.clear();

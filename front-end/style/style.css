@@ -179,8 +179,8 @@ table {
 }
 
 tr,
-th,
-td {
+td,
+th {
     border: 1px solid rgb(108, 105, 131);
 }
 
@@ -208,6 +208,21 @@ input {
 .titreForm {
     font-weight: bold;
     color: rgb(108, 105, 131);
+}
+
+.confirmation {
+    border-style: double;
+    border-color: #C39BD3;
+    background-color: #eadaf8;
+    padding: 20px;
+    margin: 20px;
+}
+
+#recapitulatif {
+    border: 3px solid rgb(108, 105, 131);
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 480px) {

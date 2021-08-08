@@ -40,8 +40,15 @@ function afficherPanier() {
             let listePanier = document.getElementById("listeProduitPanier");
             listePanier.innerHTML = listeProduitPanier;
         }
+        //affiche le totalBasket
+        const totalCommande = document.getElementById("totalPanier");
+        totalCommande.innerHTML += `${conversionPrix(localS.price)}`;
+
     }
 }
+
+
+
 
 //fonction pour vider le panier lorsque le client appuie sur vider le panier
 function viderPanier() {
@@ -94,6 +101,7 @@ function validationFormulaireCommande() {
             produitsCommandes.forEach(p => {
                 products.push(p._id);
             })
+            console.log(produitsCommandes);
 
             // création d'une constante rassemblant formulaire et produits 
             const order = {
@@ -106,6 +114,7 @@ function validationFormulaireCommande() {
                 },
                 products: products,
             };
+            console.log(order);
 
             // Envoi de la requete POST pour le backend
 
@@ -117,11 +126,10 @@ function validationFormulaireCommande() {
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data)
-                    localStorage.setItem("order", data.order);
+                    localStorage.setItem("orderId", data.orderId);
                     document.location.href = "commande.html";
                 })
                 .catch((erreur) => console.log("erreur : " + erreur));
         }
     });
-
 }
