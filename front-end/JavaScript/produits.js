@@ -29,7 +29,10 @@ function getFicheProduit(produit) {
     produitImage.innerHTML += `<img src="${produit.imageUrl}" class="imgTeddy imgFicheProduit" alt="${produit.name}">`;
     produitNom.innerHTML += `<p>${produit.name}</p>`;
     produitDescription.innerHTML += `<p>${produit.description}</p>`;
-    produitPrix.innerHTML += `<p>${conversionPrix(produit.price)}</p>`;
+
+    produit.price = produit.price / 100;
+
+    produitPrix.innerHTML = new Intl.NumberFormat("fr-FR", { style: 'currency', currency: 'EUR', code: "€", }).format(produit.price);
 }
 
 // fonction pour le choix de la couleur
@@ -62,7 +65,7 @@ function ajoutPanier() {
         let newProduit = {
             imageUrl: produitImage.innerHTML,
             name: produitNom.innerHTML,
-            price: produitPrix.innerHTML,
+            price: parseFloat(produitPrix.innerHTML),
             colors: choixCouleur,
             quantite: choixQuantite,
             _id: urlID

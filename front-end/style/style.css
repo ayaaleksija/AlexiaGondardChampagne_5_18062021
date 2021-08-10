@@ -178,6 +178,12 @@ table {
     align-items: center;
 }
 
+.titreTableau,
+tfoot {
+    background-color: #C39BD3;
+    color: white;
+}
+
 tr,
 td,
 th {

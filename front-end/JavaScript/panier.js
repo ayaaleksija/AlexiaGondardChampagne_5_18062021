@@ -5,6 +5,7 @@ main();
 
 function main() {
     afficherPanier();
+    totalPanier();
     viderPanier();
     afficherFormulaire();
     validationFormulaireCommande();
@@ -32,21 +33,42 @@ function afficherPanier() {
         <tr class="tableau">
         <td class="liste"><span>${localS[cpt].name}</span></td>
         <td class="liste"><span>${localS[cpt].colors}</span></td>
-        <td class="liste"><span> ${localS[cpt].quantite}</span></td>
-        <td class="liste"><span>${localS[cpt].price}</span></td>
+        <td class="liste"><span>${localS[cpt].quantite}</span></td>
+        <td class="liste"><span>${localS[cpt].price},00 €</span></td>
         </tr>`;
         }
         if (cpt == localS.length) {
             let listePanier = document.getElementById("listeProduitPanier");
             listePanier.innerHTML = listeProduitPanier;
         }
-        //affiche le totalBasket
-        const totalCommande = document.getElementById("totalPanier");
-        totalCommande.innerHTML += `${conversionPrix(localS.price)}`;
     }
 }
 
+// calcul du montant total du panier
+function totalPanier() {
+    // récupération de l'id ou est afficher le total
+    let totalPanier = document.getElementById("totalPanier");
+    // utilisation d'un tableau pour stocker les prix de chaque produits
+    let tableauListePrix = [];
+    for (let j = 0; j < localS.length; j++) {
+        prixProduitsPanier = localS[j].price * localS[j].quantite;
 
+        //Calcul du prix total de tous les produits
+        tableauListePrix.push(prixProduitsPanier);
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    tableauListePrix = tableauListePrix.reduce(reducer);
+
+    console.log(tableauListePrix);
+
+    totalPanier.innerText = `${(tableauListePrix = new Intl.NumberFormat(
+        "fr-FR",
+        {
+          style: "currency",
+          currency: "EUR",
+        }
+      ).format(tableauListePrix))}`;
+}
 
 
 //fonction pour vider le panier lorsque le client appuie sur vider le panier
