@@ -59,8 +59,6 @@ function totalPanier() {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     tableauListePrix = tableauListePrix.reduce(reducer);
 
-    console.log(tableauListePrix);
-
     totalPanier.innerText = `${(tableauListePrix = new Intl.NumberFormat(
         "fr-FR",
         {
@@ -68,6 +66,8 @@ function totalPanier() {
           currency: "EUR",
         }
       ).format(tableauListePrix))}`;
+
+      localStorage.setItem("prixTotal", JSON.stringify(tableauListePrix));
 }
 
 
@@ -137,8 +137,9 @@ function validationFormulaireCommande() {
             };
             console.log(order);
 
-            // Envoi de la requete POST pour le backend
 
+
+            // Envoi de la requete POST pour le backend
             fetch("http://localhost:3000/api/teddies/order", {
                     method: "POST",
                     body: JSON.stringify(order),
@@ -148,7 +149,10 @@ function validationFormulaireCommande() {
                 .then((data) => {
                     console.log(data)
                     localStorage.setItem("orderId", data.orderId);
+
+                    // envoi vers la page de confirmation
                     document.location.href = "commande.html";
+
                 })
                 .catch((erreur) => console.log("erreur : " + erreur));
         }
